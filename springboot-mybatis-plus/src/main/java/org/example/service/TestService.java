@@ -5,5 +5,4 @@ import org.example.entity.Test;
 
 
 public interface TestService extends IService<Test> {
-
 }
