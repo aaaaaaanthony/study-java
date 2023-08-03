@@ -16,4 +16,5 @@ java的工具类使用
 安全框架的使用例子
 
 # springboot-mybatis-plus
-springboot 和 mybatis-plus的整合例子
+1. springboot 和 mybatis-plus的整合例子
+2. spring事务的传播举例子
