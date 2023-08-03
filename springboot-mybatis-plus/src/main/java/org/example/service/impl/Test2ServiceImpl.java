@@ -4,24 +4,22 @@ package org.example.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.example.entity.Test;
 import org.example.entity.Test2;
-import org.example.mapper.TestMapper;
-import org.example.service.TestService;
+import org.example.mapper.Test2Mapper;
+import org.example.service.Test2Service;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
-
 @Service
-public class TestServiceImpl extends ServiceImpl<TestMapper, Test> implements TestService {
+public class Test2ServiceImpl extends ServiceImpl<Test2Mapper, Test2> implements Test2Service {
 
-    @Override
     public void insert() {
-        new Test().setUsername("anthony").setParentId(0).setAmount(BigDecimal.ZERO).insert();
+        new Test2().setUsername("anthony").setParentId(0).setAmount(BigDecimal.ZERO).insert();
     }
 
     @Override
     public void insertRuntimeException() {
-        new Test().setUsername("anthony").setParentId(0).setAmount(BigDecimal.ZERO).insert();
+        new Test2().setUsername("anthony").setParentId(0).setAmount(BigDecimal.ZERO).insert();
         throw new RuntimeException("插入报错了");
     }
 }

@@ -29,7 +29,7 @@ public class CodeGenerator {
         if(ALL_TABLE){
             gen.setStrategy(getStrategyConfig(null));
         } else {
-            String[] tables = {"test"};
+            String[] tables = {"test2"};
             gen.setStrategy(getStrategyConfig(tables));
         }
         //包配置
