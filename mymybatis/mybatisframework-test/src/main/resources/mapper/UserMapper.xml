@@ -1,13 +1,13 @@
-<mapper namespace="user">
+<mapper namespace="com.example.dao.IUserDao">
 
     <!--唯一标识:namespace.id statementId-->
     <!--查询所有-->
-    <select id="selectList" resultType="com.example.pojo.User">
+    <select id="findAll" resultType="com.example.pojo.User">
         select * from user
     </select>
 
     <!--按条件查询-->
-    <select id="selectOne"  resultType="com.example.pojo.User" parameterType="com.example.pojo.User">
+    <select id="findByCondition"  resultType="com.example.pojo.User" parameterType="com.example.pojo.User">
         select * from user where id = #{id} and username = #{username}
     </select>
 

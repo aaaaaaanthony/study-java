@@ -17,3 +17,10 @@ java的工具类使用
 # springboot-mybatis-plus
 1. springboot 和 mybatis-plus的整合例子
 2. spring事务的传播举例子
+
+# mymybatis
+手写myabtis框架
+* mybatisframework  
+  手写myabtis框架
+* mybatisframework-test  
+  手写myabtis框架的测试

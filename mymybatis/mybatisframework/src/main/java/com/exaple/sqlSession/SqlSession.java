@@ -19,4 +19,9 @@ public interface SqlSession {
      * 清楚资源
      */
     void close();
+
+    /**
+     * 生成代理对象
+     */
+    <T> T getMapper(Class<T> mapperClass);
 }

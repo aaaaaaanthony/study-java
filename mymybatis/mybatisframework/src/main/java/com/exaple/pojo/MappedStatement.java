@@ -14,6 +14,16 @@ public class MappedStatement {
 
     private String sql;
 
+    private String sqlCommandType;
+
+    public String getSqlCommandType() {
+        return sqlCommandType;
+    }
+
+    public void setSqlCommandType(String sqlCommandType) {
+        this.sqlCommandType = sqlCommandType;
+    }
+
     public String getSql() {
         return sql;
     }

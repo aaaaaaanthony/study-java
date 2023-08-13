@@ -4,6 +4,7 @@ import com.exaple.executor.Executor;
 import com.exaple.pojo.Configuration;
 import com.exaple.pojo.MappedStatement;
 
+import java.lang.reflect.*;
 import java.util.List;
 
 public class DefaultSqlSession implements SqlSession {
@@ -41,5 +42,48 @@ public class DefaultSqlSession implements SqlSession {
     @Override
     public void close() {
         executor.close();
+    }
+
+    @Override
+    public <T> T getMapper(Class<T> mapperClass) {
+        // 使用JDK动态代理生成基于代理的对象
+        Object o = Proxy.newProxyInstance(DefaultSqlSession.class.getClassLoader(), new Class[]{mapperClass}, new InvocationHandler() {
+
+            // 1.代理对象的应用
+            // 2.执行代理对象的方法
+            // 3.参数
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+                String name = method.getName();
+                String name1 = method.getDeclaringClass().getName();
+                String statementId = name1 + "." + name;
+
+                MappedStatement mappedStatement = configuration.getMappedStatementMap().get(statementId);
+                String sqlCommandType = mappedStatement.getSqlCommandType();
+
+                switch (sqlCommandType) {
+                    case "select":
+                        Type genericReturnType = method.getGenericReturnType();
+                        if (genericReturnType instanceof ParameterizedType) {
+                            if (args != null) {
+                                return selectList(statementId, args[0]);
+                            }else {
+                                return selectList(statementId, null);
+                            }
+
+                        }
+                        return selectOne(statementId, args[0]);
+                    case "update":
+                        break;
+                    case "delete":
+                        break;
+
+                }
+
+                return null;
+            }
+        });
+        return (T) o;
     }
 }
