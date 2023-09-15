@@ -9,5 +9,6 @@ public class Main {
         // 第二次修饰，为巧克力奶茶添加椰果
         milkTea = new Coconut(milkTea);
         System.out.println(milkTea.getDescription() + "\n加了布丁的巧克力奶茶的价格：" + milkTea.getPrice());
+
     }
 }
