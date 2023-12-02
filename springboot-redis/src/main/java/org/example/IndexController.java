@@ -1,13 +1,16 @@
 package org.example;
 
 
+import cn.hutool.json.JSONUtil;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Data;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/index")
@@ -17,6 +20,9 @@ public class IndexController {
     private RedisTemplate<String, String> redisTemplate;
 
     ObjectMapper objectMapper = new ObjectMapper();
+
+    @Resource
+    private RedisDao redisDao;
 
     @RequestMapping("/list")
     public void list() throws JsonProcessingException {
@@ -90,4 +96,34 @@ public class IndexController {
         String s2 = objectMapper.writeValueAsString(userVO2);
         redisTemplate.opsForZSet().add("zset_test2", s2, 2);
     }
+
+    @RequestMapping("/test")
+    public void test() throws JsonProcessingException {
+        Demo demo = new Demo();
+        demo.setBegin(new Date());
+
+        redisDao.setBean("test", demo);
+
+        Demo test = redisDao.getBean("test", Demo.class);
+        System.out.println(test.begin);
+
+        String jsonStr = JSONUtil.toJsonStr(demo);
+        System.out.println(jsonStr);
+
+
+        Object obj = demo;
+        String jsonStr1 = JSONUtil.toJsonStr(obj);
+        System.out.println(jsonStr1);
+    }
+
+
+}
+
+
+@Data
+class Demo {
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",shape = JsonFormat.Shape.STRING,timezone = "GMT+8")
+    Date begin;
+
 }
