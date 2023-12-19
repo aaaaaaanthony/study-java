@@ -4,13 +4,13 @@ import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import org.bouncycastle.util.encoders.Hex;
-import tron.fullnode.util.KeyPair;
+import org.tron.trident.core.key.KeyPair;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.util.HashMap;
 
-public class Demo {
+public class TrxDemo {
     final static String URL = "https://nile.trongrid.io";
 
     static final String KEY_ONE = "589db98f4b5f01431533cb32a44e9e102ac01ed1cba822f5e2ad74271afda05b";
@@ -55,11 +55,13 @@ public class Demo {
     }
 
 
+
+
     private static String createtransaction(){
         HashMap<String, Object> map = new HashMap<>();
         map.put("owner_address", "TBerc96QsrY78Pp3bjDKwJJBTdiZiHSM5A");
         map.put("to_address", "TWVx3tmWpXfCEqcupkwFuy6wcejqNqaX9N");
-        map.put("amount", 140);
+        map.put("amount", 14000000);
         map.put("visible", true);
 
         String sub_url = URL + "/wallet/createtransaction";
@@ -75,7 +77,7 @@ public class Demo {
     /**
      * 广播签名
      */
-    private static void broadcasttransaction(HashMap<String, Object> map){
+    static void broadcasttransaction(HashMap<String, Object> map){
         String sub_url = URL + "/wallet/broadcasttransaction";
         String body = HttpRequest.post(sub_url)
                 .header("Content-Type", "application/json")
