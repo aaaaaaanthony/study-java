@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static tron.fullnode.transfer.TrxDemo.bytesToHex;
+
 /**
  * 智能合约
  */
@@ -117,17 +119,19 @@ public class Trc20Demo {
         JSONObject obj = JSONUtil.parseObj(body);
         JSONObject transaction = obj.getJSONObject("transaction");
         String txId = transaction.getStr("txID");
-        byte[] decode = Hex.decode(txId);
-        byte[] bytes = KeyPair.signTransaction(decode, keyPair);
-        String signatureHex = ByteArray.toHexString(bytes);
+//        byte[] decode = Hex.decode(txId);
+//        byte[] bytes = KeyPair.signTransaction(decode, keyPair);
+
+//        Protocol.Transaction tx = packTransaction(obj.toString());
+//        byte[] bytes = signTransactionByte(tx.toByteArray(), ByteArray.fromHexString(KEY_ONE));
+
+//        String signatureHex = Hex.toHexString(bytes);
         System.out.println("原始流水ID后的:" + txId);
         HashMap<String, Object> map2 = new HashMap<>();
-        map2.put("transaction", ByteArray.toHexString(bytes));
+//        map2.put("transaction", signatureHex);
         System.out.println("广播前打印请求参数:" + JSONUtil.toJsonPrettyStr(map2));
         broadcasttransaction2(map);
     }
-
-
 
 
     static void broadcasttransaction2(HashMap<String, Object> map) {
