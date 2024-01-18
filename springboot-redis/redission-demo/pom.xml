@@ -8,10 +8,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>redission-demo</artifactId>
+    <artifactId>redisson-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>redission-demo</name>
-    <description>redission-demo</description>
+    <name>redisson-demo</name>
+    <description>redisson-demo</description>
     <properties>
         <java.version>17</java.version>
     </properties>
