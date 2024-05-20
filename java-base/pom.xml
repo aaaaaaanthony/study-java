@@ -54,27 +54,27 @@
             <version>3.25.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.tron.trident</groupId>
-            <artifactId>abi</artifactId>
-            <version>0.3.0</version>
-            <scope>system</scope>
-            <systemPath>/Users/anthony/Desktop/abi-0.8.0.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>org.tron.trident</groupId>
-            <artifactId>utils</artifactId>
-            <version>0.3.0</version>
-            <scope>system</scope>
-            <systemPath>/Users/anthony/Desktop/utils-0.8.0.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>org.tron.trident</groupId>
-            <artifactId>core</artifactId>
-            <version>0.3.0</version>
-            <scope>system</scope>
-            <systemPath>/Users/anthony/Desktop/utils-0.8.0.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.tron.trident</groupId>-->
+<!--            <artifactId>abi</artifactId>-->
+<!--            <version>0.3.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>abi-0.8.0.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.tron.trident</groupId>-->
+<!--            <artifactId>utils</artifactId>-->
+<!--            <version>0.3.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>/Users/anthony/Desktop/utils-0.8.0.jar</systemPath>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.tron.trident</groupId>-->
+<!--            <artifactId>core</artifactId>-->
+<!--            <version>0.3.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>/Users/anthony/Desktop/utils-0.8.0.jar</systemPath>-->
+<!--        </dependency>-->
 
            <dependency>
 		    <groupId>io.grpc</groupId>
